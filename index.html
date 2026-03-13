@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANLEVA - Firma Electrónica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .modal-animate-in { animation: modalIn 0.3s ease-out forwards; }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 dark:bg-slate-950/80 dark:border-slate-800 glass-effect">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <svg class="text-white w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                </div>
+                <h1 class="text-lg md:text-xl font-bold tracking-tight"><span class="text-brand-500">ANLEVA</span></h1>
+            </div>
+
+            <nav class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#requisitos" class="hover:text-brand-500 transition-colors">Requisitos</a>
+                <a href="#precios" class="hover:text-brand-500 transition-colors">Precios</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#precios" class="hidden sm:block bg-brand-500 hover:bg-brand-600 text-white px-6 py-2 rounded-full text-sm font-bold transition-all shadow-md active:scale-95">Solicitar</a>
+                <button id="menu-toggle" class="md:hidden p-2 text-slate-600 dark:text-slate-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="hidden md:hidden bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 p-4 space-y-4">
+            <a href="#requisitos" class="block text-sm font-medium py-2" onclick="toggleMenu()">Requisitos</a>
+            <a href="#precios" class="block text-sm font-medium py-2" onclick="toggleMenu()">Precios</a>
+            <a href="#contacto" class="block text-sm font-medium py-2" onclick="toggleMenu()">Contacto</a>
+            <a href="#precios" class="block w-full text-center bg-brand-500 text-white py-3 rounded-xl font-bold" onclick="toggleMenu()">Solicitar Firma</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative py-16 md:py-28 overflow-hidden px-4">
+        <div class="container mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 md:mb-8 tracking-tight leading-[1.1]">
+                Firma Electrónica <br><span class="text-brand-500">Sin Complicaciones</span>
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-10 text-base md:text-lg leading-relaxed">
+                Certificados digitales válidos para SRI, QUIPUX y Aduanas. Obtén tu firma hoy mismo de forma 100% remota.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#precios" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white px-10 py-4 rounded-2xl font-bold shadow-xl shadow-brand-500/25 transition-all">
+                    Ver Planes
+                </a>
+                <a href="#requisitos" class="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-10 py-4 rounded-2xl font-bold transition-all">
+                    Requisitos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUISITOS -->
+    <section id="requisitos" class="py-20 bg-slate-50 dark:bg-slate-900/40">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Qué necesitas enviar?</h2>
+                <div class="w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10">
+                <button onclick="mostrarRequisitos('natural')" id="btn-natural" class="requisito-tab flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold transition-all border-2 border-brand-500 bg-brand-500 text-white shadow-md text-sm md:text-base">Persona Natural</button>
+                <button onclick="mostrarRequisitos('legal')" id="btn-legal" class="requisito-tab flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold transition-all border-2 border-transparent bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:border-brand-300 text-sm md:text-base">Representante Legal</button>
+            </div>
+
+            <div class="max-w-xl mx-auto">
+                <div id="natural" class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                            <span class="text-brand-500 font-bold">01</span>
+                            <span class="text-sm md:text-base font-medium">PDF del RUC (Descargado del SRI)</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                            <span class="text-brand-500 font-bold">02</span>
+                            <span class="text-sm md:text-base font-medium">Cédula a Color (Lado A y B)</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                            <span class="text-brand-500 font-bold">03</span>
+                            <span class="text-sm md:text-base font-medium">Selfie sosteniendo la Cédula</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="legal" class="hidden bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                            <span class="text-brand-500 font-bold">01</span>
+                            <span class="text-sm md:text-base font-medium">PDF del RUC de la Empresa</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                            <span class="text-brand-500 font-bold">02</span>
+                            <span class="text-sm md:text-base font-medium">Nombramiento del Representante</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                            <span class="text-brand-500 font-bold">03</span>
+                            <span class="text-sm md:text-base font-medium">Cédula y Selfie del Representante</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section id="precios" class="py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Plan Express -->
+                <div class="group bg-white dark:bg-slate-900 p-8 rounded-[2rem] border-2 border-slate-100 dark:border-slate-800 hover:border-brand-500 transition-all flex flex-col items-center text-center">
+                    <span class="text-xs font-bold text-slate-400 mb-2 uppercase">Plan Express</span>
+                    <h3 class="text-2xl font-black mb-4">7 Días</h3>
+                    <div class="text-4xl font-black text-brand-500 mb-8">$7</div>
+                    <button onclick="abrirModal('Plan Express','7 Días','$7')" class="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 group-hover:bg-brand-500 group-hover:text-white font-bold rounded-2xl transition-all">Elegir</button>
+                </div>
+                
+                <!-- Plan Mensual -->
+                <div class="group bg-white dark:bg-slate-900 p-8 rounded-[2rem] border-2 border-slate-100 dark:border-slate-800 hover:border-brand-500 transition-all flex flex-col items-center text-center">
+                    <span class="text-xs font-bold text-slate-400 mb-2 uppercase">Plan Corto</span>
+                    <h3 class="text-2xl font-black mb-4">1 Mes</h3>
+                    <div class="text-4xl font-black text-brand-500 mb-8">$12</div>
+                    <button onclick="abrirModal('Plan Mensual','1 Mes','$12')" class="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 group-hover:bg-brand-500 group-hover:text-white font-bold rounded-2xl transition-all">Elegir</button>
+                </div>
+
+                <!-- Plan Anual -->
+                <div class="relative p-8 rounded-[2.5rem] bg-brand-500 text-white shadow-2xl shadow-brand-500/40 flex flex-col items-center text-center sm:scale-105 z-10">
+                    <div class="absolute -top-3 bg-slate-950 text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Más Vendido</div>
+                    <span class="text-xs font-bold opacity-80 mb-2 uppercase">Plan Estándar</span>
+                    <h3 class="text-2xl font-black mb-4">1 Año</h3>
+                    <div class="text-5xl font-black mb-8">$15</div>
+                    <button onclick="abrirModal('Plan Anual','1 Año','$15')" class="w-full py-4 bg-white text-brand-600 font-black rounded-2xl transition-all hover:bg-slate-100 active:scale-95">Solicitar Ahora</button>
+                </div>
+
+                <!-- Plan Profesional -->
+                <div class="group bg-white dark:bg-slate-900 p-8 rounded-[2rem] border-2 border-slate-100 dark:border-slate-800 hover:border-brand-500 transition-all flex flex-col items-center text-center">
+                    <span class="text-xs font-bold text-slate-400 mb-2 uppercase">Plan Ahorro</span>
+                    <h3 class="text-2xl font-black mb-4">2 Años</h3>
+                    <div class="text-4xl font-black text-brand-500 mb-8">$25</div>
+                    <button onclick="abrirModal('Plan Profesional','2 Años','$25')" class="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 group-hover:bg-brand-500 group-hover:text-white font-bold rounded-2xl transition-all">Elegir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-sm text-slate-500">&copy; <span id="currentYear"></span>  <a href="#" class="text-brand-500 font-bold hover:underline">ANLEVA.</a> Todos los derechos reservados.</p>
+            <p class="text-xs font-medium text-slate-400">Desarrollado por MintDev48</a></p>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: SELECCIÓN DE TIPO -->
+    <div id="modalFirma" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center z-[60] p-4">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] overflow-hidden shadow-2xl modal-animate-in relative">
+            
+            <!-- Botón Cerrar (X) mejorado -->
+            <button onclick="cerrarModal('modalFirma')" class="absolute top-6 right-6 p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-all z-10">
+                <svg class="w-5 h-5 text-slate-500 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <div class="bg-brand-500 p-8 text-white">
+                <p class="text-[10px] font-black uppercase tracking-widest opacity-80 mb-1">Paso 1 de 2</p>
+                <h3 id="planSeleccionado" class="text-2xl font-black">Plan Seleccionado</h3>
+            </div>
+            
+            <div class="p-8">
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-4 text-center">Seleccione el tipo de firma</label>
+                
+                <div id="container-opciones" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Opción Natural -->
+                    <button onclick="setTipo('natural')" class="flex flex-col items-center gap-3 p-6 border-2 border-slate-100 dark:border-slate-800 rounded-3xl hover:border-brand-500 transition-all bg-slate-50/50 dark:bg-slate-800/50 group">
+                        <div class="w-12 h-12 bg-white dark:bg-slate-700 rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                        <span class="font-bold text-slate-700 dark:text-slate-200">Persona Natural</span>
+                    </button>
+
+                    <!-- Opción Legal (Condicionalmente oculta) -->
+                    <button id="opcion-legal" onclick="setTipo('legal')" class="flex flex-col items-center gap-3 p-6 border-2 border-slate-100 dark:border-slate-800 rounded-3xl hover:border-brand-500 transition-all bg-slate-50/50 dark:bg-slate-800/50 group">
+                        <div class="w-12 h-12 bg-white dark:bg-slate-700 rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                        <span class="font-bold text-slate-700 dark:text-slate-200">Rep. Legal</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ALERTA DE CONFIRMACIÓN -->
+    <div id="modalAlerta" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center z-[70] p-4">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl modal-animate-in">
+            <div class="p-8 text-center">
+                <div class="w-20 h-20 bg-brand-100 dark:bg-brand-500/20 text-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-black mb-2">¿Todo listo?</h3>
+                <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">Antes de continuar al chat de soporte, asegúrese de tener:</p>
+                
+                <div class="text-left space-y-3 mb-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl">
+                    <div class="flex items-start gap-3 text-sm">
+                        <div class="w-5 h-5 bg-brand-500 text-white rounded-full flex-shrink-0 flex items-center justify-center text-[10px] mt-0.5">✓</div>
+                        <p class="dark:text-slate-300">Documentos en formato PDF/Imagen.</p>
+                    </div>
+                    <div class="flex items-start gap-3 text-sm">
+                        <div class="w-5 h-5 bg-brand-500 text-white rounded-full flex-shrink-0 flex items-center justify-center text-[10px] mt-0.5">✓</div>
+                        <p class="dark:text-slate-300">Buena conexión a internet.</p>
+                    </div>
+                    <div class="flex items-start gap-3 text-sm">
+                        <div class="w-5 h-5 bg-brand-500 text-white rounded-full flex-shrink-0 flex items-center justify-center text-[10px] mt-0.5">✓</div>
+                        <p class="dark:text-slate-300 text-xs opacity-70 italic">La validación se realiza mediante WhatsApp Business.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <button onclick="enviarWhatsApp()" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-black py-4 rounded-2xl shadow-xl shadow-brand-500/30 transition-all active:scale-95 flex items-center justify-center gap-2">
+                        <span>Proceder a WhatsApp</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </button>
+                    <button onclick="cerrarModal('modalAlerta')" class="w-full text-slate-400 font-bold py-3 text-sm hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Volver atrás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Año automático
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+        // Control del Menú Móvil
+        function toggleMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = document.getElementById('menu-icon');
+            mobileNav.classList.toggle('hidden');
+            const isHidden = mobileNav.classList.contains('hidden');
+            menuIcon.setAttribute('d', isHidden ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12');
+        }
+        document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
+
+        let planData = { nombre: "", duracion: "", precio: "", tipo: "" };
+
+        function abrirModal(nombre, duracion, precio){
+            planData.nombre = nombre;
+            planData.duracion = duracion;
+            planData.precio = precio;
+            
+            document.getElementById("planSeleccionado").innerText = `${nombre} (${precio})`;
+            
+            // LÓGICA DE MEJORA: Ocultar Rep. Legal en planes cortos
+            const legalBtn = document.getElementById("opcion-legal");
+            const container = document.getElementById("container-opciones");
+            
+            if(duracion === "7 Días" || duracion === "1 Mes") {
+                legalBtn.classList.add("hidden");
+                container.classList.remove("sm:grid-cols-2");
+                container.classList.add("sm:grid-cols-1", "max-w-[280px]", "mx-auto");
+            } else {
+                legalBtn.classList.remove("hidden");
+                container.classList.add("sm:grid-cols-2");
+                container.classList.remove("sm:grid-cols-1", "max-w-[280px]", "mx-auto");
+            }
+
+            const modal = document.getElementById("modalFirma");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function setTipo(tipo){
+            planData.tipo = tipo;
+            cerrarModal("modalFirma");
+            const modalAlerta = document.getElementById("modalAlerta");
+            modalAlerta.classList.remove("hidden");
+            modalAlerta.classList.add("flex");
+        }
+
+        function cerrarModal(id){
+            const m = document.getElementById(id);
+            if (m) {
+                m.classList.add("hidden");
+                m.classList.remove("flex");
+            }
+        }
+
+        function enviarWhatsApp(){
+            const esNatural = planData.tipo === 'natural';
+            const tipoText = esNatural ? "Persona Natural" : "Representante Legal";
+            const requisitos = esNatural ? 
+                "PDF del RUC, Cédula color y Selfie con cédula" : 
+                "RUC empresa, Nombramiento, Cédula representante y Selfie";
+
+            const mensaje = `Hola, deseo solicitar una Firma Electrónica:\n\n` +
+                          `📌 Plan: ${planData.nombre} (${planData.duracion})\n` +
+                          `💰 Precio: ${planData.precio}\n` +
+                          `👤 Tipo: ${tipoText}\n\n` +
+                          `✅ Tengo listos los requisitos: ${requisitos}`;
+
+            const url = `https://api.whatsapp.com/send?phone=593987974798&text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+            cerrarModal('modalAlerta');
+        }
+
+        function mostrarRequisitos(tipo){
+            const isNatural = tipo === 'natural';
+            document.getElementById('natural').classList.toggle('hidden', !isNatural);
+            document.getElementById('legal').classList.toggle('hidden', isNatural);
+            
+            document.getElementById('btn-natural').className = isNatural ? 
+                'requisito-tab flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold border-2 border-brand-500 bg-brand-500 text-white shadow-md' :
+                'requisito-tab flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold border-2 border-transparent bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:border-brand-300';
+            
+            document.getElementById('btn-legal').className = !isNatural ? 
+                'requisito-tab flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold border-2 border-brand-500 bg-brand-500 text-white shadow-md' :
+                'requisito-tab flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold border-2 border-transparent bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:border-brand-300';
+        }
+
+        // Cerrar modales al hacer clic fuera (overlay)
+        window.onclick = function(event) {
+            const modal1 = document.getElementById("modalFirma");
+            const modal2 = document.getElementById("modalAlerta");
+            if (event.target == modal1) cerrarModal("modalFirma");
+            if (event.target == modal2) cerrarModal("modalAlerta");
+        }
+    </script>
+</body>
+</html>
